@@ -1,0 +1,16 @@
+body main{
+    margin: 0px;
+    padding: 0px;
+}
+
+main nav div {
+    padding: 13px;
+}
+section {
+    padding: 35px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+}
