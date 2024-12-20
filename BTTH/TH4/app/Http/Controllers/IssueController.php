@@ -8,21 +8,21 @@ use Illuminate\Http\Request;
 
 class IssueController extends Controller
 {
-    //Hiển thị danh sách các vấn đềđề
+    //Hiển thị danh sách các vấn đề
     public function index()
     {
         $issues = issues::with('computer')->paginate(10); // Phân trang 10 bản ghi
         return view('issues.index', compact('issues'));
     }
 
-    //Hiển thị form thêm máy tínhtính
+    //Hiển thị form thêm máy tính
     public function create()
     {
         $computers = computers::all();
         return view('issues.create', compact('computers'));
     }
 
-    //Lưu máy tính mớimới
+    //Lưu máy tính mới
     public function store(Request $request)
     {
         $request->validate([
@@ -47,7 +47,7 @@ class IssueController extends Controller
         //
     }
 
-    //Hiển thị form sửa máy tínhtính
+    //Hiển thị form sửa máy tính
     public function edit($id)
     {
         $issues = issues::findOrFail($id);
@@ -55,7 +55,7 @@ class IssueController extends Controller
         return view('issues.edit', compact('issues', 'computers'));
     }
 
-    //Hiển thị form cập nhật máy tínhtính
+    //Hiển thị form cập nhật máy tính
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -75,7 +75,7 @@ class IssueController extends Controller
     }
 
     //Hiển thị form xóa máy tính
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $issues = issues::findOrFail($id);
         $issues->delete();
